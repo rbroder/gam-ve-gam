@@ -51,7 +51,7 @@ fbq('track', 'PageView');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
 body {
   font-family: 'Assistant', system-ui, sans-serif;
@@ -1099,10 +1099,11 @@ section { padding: 48px 0; position: relative; }
   align-items: start;
   max-width: 800px;
   margin: 0 auto;
+  min-height: 520px; /* reserve space so IG embed loading doesn't shift layout */
 }
 
 @media (max-width: 900px) {
-  .ig-posts { grid-template-columns: 1fr; max-width: 420px; }
+  .ig-posts { grid-template-columns: 1fr; max-width: 420px; min-height: 1600px; }
 }
 
 .ig-posts blockquote.instagram-media,
@@ -1596,6 +1597,28 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) entry.target.style.opacity = '1';
   });
 }, { threshold: 0.1 });
+
+// === SMART ANCHOR SCROLL (compensates for late-loading content) ===
+(function() {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const id = link.getAttribute('href').slice(1);
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      const scrollTo = () => {
+        const navHeight = document.querySelector('.nav')?.offsetHeight || 70;
+        const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      };
+      scrollTo();
+      // Re-scroll after a short delay in case content has shifted
+      setTimeout(scrollTo, 400);
+      setTimeout(scrollTo, 1000);
+    });
+  });
+})();
 
 // === CAROUSEL ===
 (function() {
