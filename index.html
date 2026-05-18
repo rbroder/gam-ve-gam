@@ -711,7 +711,7 @@ section { padding: 90px 0; position: relative; }
 
 .carousel-track {
   display: flex;
-  gap: 24px;
+  gap: 22px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -727,14 +727,14 @@ section { padding: 90px 0; position: relative; }
 
 .carousel-card {
   flex: 0 0 auto;
-  width: 320px;
+  width: 280px;
   scroll-snap-align: center;
   transition: transform 0.3s ease;
   background: transparent;
 }
 
 @media (max-width: 480px) {
-  .carousel-card { width: 280px; }
+  .carousel-card { width: 240px; }
 }
 
 .carousel-card:hover { transform: translateY(-4px); }
@@ -743,14 +743,15 @@ section { padding: 90px 0; position: relative; }
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.15));
+  border-radius: 14px;
+  filter: drop-shadow(0 8px 22px rgba(0,0,0,0.12));
 }
 
 .carousel-controls {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .carousel-btn {
@@ -771,14 +772,6 @@ section { padding: 90px 0; position: relative; }
 .carousel-btn:hover {
   background: var(--sage-dark);
   color: var(--cream-light);
-}
-
-.carousel-add-photos {
-  text-align: center;
-  margin-top: 30px;
-  color: var(--muted);
-  font-size: 13px;
-  font-style: italic;
 }
 
 /* === DETAILS CARDS === */
@@ -819,9 +812,20 @@ section { padding: 90px 0; position: relative; }
 }
 
 .detail-icon {
-  font-size: 40px;
-  margin-bottom: 18px;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--cream-light);
+  color: var(--sage-dark);
+  margin-bottom: 16px;
+}
+
+.detail-icon svg {
+  width: 26px;
+  height: 26px;
 }
 
 .detail-label {
@@ -946,10 +950,68 @@ section { padding: 90px 0; position: relative; }
   min-height: 80px;
 }
 
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 18px 0 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.form-checkbox-box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--sage-dark);
+  border-radius: 5px;
+  background: white;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  position: relative;
+}
+
+.form-checkbox-box::after {
+  content: '';
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.15s ease;
+  margin-bottom: 2px;
+}
+
+.form-checkbox input:checked + .form-checkbox-box {
+  background: var(--sage-dark);
+  border-color: var(--sage-dark);
+}
+
+.form-checkbox input:checked + .form-checkbox-box::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.form-checkbox-text {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
 .form-consent {
   font-size: 13px;
   color: var(--muted);
-  margin: 14px 0 22px;
+  margin: 6px 0 18px;
   line-height: 1.5;
 }
 
@@ -1349,7 +1411,7 @@ footer a:hover { color: var(--gold); }
     <div class="about-me-grid">
       <div class="about-me-photo"></div>
       <div class="about-me-text">
-        <p>אני רן, מנכ״ל Bird ישראל, עורך דין, מרצה ומנחה סדנאות למנהיגות מיטיבה. אני גם מפחד לפעמים. נלחץ. מרגיש את הצורך להיות אהוב.</p>
+        <p>אני רן, מנכ״ל Bird ישראל, עורך דין, מרצה ומנחה סדנאות למנהיגות מיטיבה‫.‬</p>
         <p>במהלך הקריירה ניהלתי צוותים מגוונים והובלתי חברות. גיליתי, שדווקא הרגעים שבהם העזתי להיות אמיתי, פגיע ורגיש - הם הרגעים שבהם הסביבה התחברה אליי באמת. אלו היו הרגעים שבהם הבינו שאני לא רק מנהל, אלא בן אדם. אלו גם הרגעים שבהם הפכתי למנהיג אמיתי.</p>
         <p>בעשור האחרון העמקתי במסע אישי: טיפול אישי, מיינדפולנס, מדיטציה ונשימה, בוגר קורס הנחיית קבוצות בבית הספר ״נתיב״ בהנחיית שחר כספי.</p>
         <p>השאיפה שלי היא שמקומות עבודה יהיו כר פורה להתפתחות לא רק מקצועית, אלא גם רגשית - ושמנהלים יגלו שהאנושיות שלהם איננה חולשה אלא מקור לעוצמה.</p>
@@ -1362,20 +1424,17 @@ footer a:hover { color: var(--gold); }
 <section class="testimonials" id="testimonials">
   <div class="testimonials-header">
     <div class="section-eyebrow">המלצות</div>
-    <h2 class="section-title">משתתפים מספרים</h2>
-    <p style="color: var(--ink-soft); font-size: 17px; margin-top: 14px;">עשרות מנהלים כבר עברו את הסדנה ומשתפים:</p>
+    <h2 class="section-title">עשרות מנהלים כבר עברו את הסדנה ומשתפים:</h2>
   </div>
 
   <div class="carousel-wrap">
     <div class="carousel-track" id="carousel-track">
-      <div class="carousel-card"><img src="assets/testimonials/1.png" alt="המלצה מהסדנה"></div>
-      <div class="carousel-card"><img src="assets/testimonials/2.png" alt="המלצה מהסדנה"></div>
-      <div class="carousel-card"><img src="assets/testimonials/3.png" alt="המלצה מהסדנה"></div>
-      <div class="carousel-card"><img src="assets/testimonials/4.png" alt="המלצה מהסדנה"></div>
-      <div class="carousel-card"><img src="assets/testimonials/5.png" alt="המלצה מהסדנה"></div>
-      <div class="carousel-card"><img src="assets/testimonials/6.png" alt="המלצה מהסדנה"></div>
-      <div class="carousel-card"><img src="assets/testimonials/7.png" alt="המלצה מהסדנה"></div>
-      <div class="carousel-card"><img src="assets/testimonials/8.png" alt="המלצה מהסדנה"></div>
+      <div class="carousel-card"><img src="assets/testimonials/1.PNG" alt="המלצה" loading="lazy"></div>
+      <div class="carousel-card"><img src="assets/testimonials/2.JPG" alt="המלצה" loading="lazy"></div>
+      <div class="carousel-card"><img src="assets/testimonials/3.PNG" alt="המלצה" loading="lazy"></div>
+      <div class="carousel-card"><img src="assets/testimonials/4.PNG" alt="המלצה" loading="lazy"></div>
+      <div class="carousel-card"><img src="assets/testimonials/5.PNG" alt="המלצה" loading="lazy"></div>
+      <div class="carousel-card"><img src="assets/testimonials/6.PNG" alt="המלצה" loading="lazy"></div>
     </div>
 
     <div class="carousel-controls">
@@ -1396,20 +1455,40 @@ footer a:hover { color: var(--gold); }
     <div class="details-cards">
 
       <div class="detail-card">
-        <span class="detail-icon">📍</span>
+        <span class="detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </span>
         <div class="detail-value">Edna · נווה מדבר יפואי</div>
         <div class="detail-sub">דרך שלמה 6, יפו</div>
       </div>
 
       <div class="detail-card">
-        <span class="detail-icon">📅</span>
+        <span class="detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <circle cx="12" cy="15.5" r="1.4" fill="currentColor"/>
+          </svg>
+        </span>
         <div class="detail-value">יום שני, 8.6</div>
         <div class="detail-sub">19:30</div>
       </div>
 
       <div class="detail-card">
-        <span class="detail-icon">💰</span>
-        <div class="detail-value">150 ש״ח בלבד</div>
+        <span class="detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5 1-2.5 2s1 1.7 2.5 2 2.5 1 2.5 2.2-1 2-2.5 2c-1.2 0-2.2-.5-2.7-1.5"/>
+            <line x1="12" y1="6.5" x2="12" y2="8"/>
+            <line x1="12" y1="16" x2="12" y2="17.5"/>
+          </svg>
+        </span>
+        <div class="detail-value">150 ש״ח</div>
         <div class="detail-sub">כולל שיחת היכרות וסיכום כתוב</div>
       </div>
 
@@ -1439,8 +1518,14 @@ footer a:hover { color: var(--gold); }
         <input type="email" id="email" name="email" required>
       </div>
 
+      <label class="form-checkbox">
+        <input type="checkbox" id="marketing-consent" name="marketing-consent" required>
+        <span class="form-checkbox-box"></span>
+        <span class="form-checkbox-text">אני מאשר.ת קבלת דיוור והודעות מרן ברודר</span>
+      </label>
+
       <div class="form-consent">
-        בלחיצה על שליחה אני מאשר.ת שקראתי את <a href="privacy.html" target="_blank">מדיניות הפרטיות</a> ומסכים.ה ליצירת קשר בנוגע לסדנה.
+        בלחיצה על שליחה אני מאשר.ת שקראתי את <a href="privacy.html" target="_blank">מדיניות הפרטיות</a>.
       </div>
 
       <button type="submit" id="submit-btn">להרשמה ומעבר לתשלום ←</button>
@@ -1501,6 +1586,21 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
+// === CAROUSEL ===
+(function() {
+  const track = document.getElementById('carousel-track');
+  const prev = document.getElementById('carousel-prev');
+  const next = document.getElementById('carousel-next');
+  if (!track) return;
+  const scrollAmount = () => {
+    const card = track.querySelector('.carousel-card');
+    return card ? card.offsetWidth + 22 : 280;
+  };
+  // RTL: → previous, ← next
+  prev.addEventListener('click', () => track.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+})();
+
 // === STAGGERED TAKEAWAYS REVEAL ===
 (function() {
   const items = document.querySelectorAll('.takeaways-list li');
@@ -1524,22 +1624,6 @@ window.addEventListener('scroll', () => {
   nav.style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,0.05)' : 'none';
 });
 
-// === CAROUSEL ===
-(function() {
-  const track = document.getElementById('carousel-track');
-  const prev = document.getElementById('carousel-prev');
-  const next = document.getElementById('carousel-next');
-  if (!track) return;
-
-  const scrollAmount = () => {
-    const card = track.querySelector('.carousel-card');
-    return card ? card.offsetWidth + 24 : 320;
-  };
-
-  // RTL: arrow → goes to previous (right), arrow ← goes to next (left)
-  prev.addEventListener('click', () => track.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
-  next.addEventListener('click', () => track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
-})();
 
 // === FORM SUBMIT ===
 (function() {
@@ -1564,6 +1648,7 @@ window.addEventListener('scroll', () => {
       name: form.name.value,
       phone: form.phone.value,
       email: form.email.value,
+      marketingConsent: form['marketing-consent'].checked ? 'yes' : 'no',
       timestamp: new Date().toISOString(),
     };
 
