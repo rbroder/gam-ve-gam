@@ -189,6 +189,7 @@ section { padding: 48px 0; position: relative; }
 .hero-questions {
   font-size: clamp(16px, 2vw, 19px);
   font-weight: 500;
+  font-style: italic;
   color: var(--ink);
   line-height: 1.7;
   margin-bottom: 30px;
@@ -1110,9 +1111,8 @@ section { padding: 48px 0; position: relative; }
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--cream);
+  background: white;
   border: 1px solid var(--line);
-  color: var(--sage-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1120,11 +1120,13 @@ section { padding: 48px 0; position: relative; }
 }
 
 .social-icons a:hover {
-  background: var(--sage-dark);
-  color: var(--cream-light);
   transform: translateY(-2px);
-  border-color: var(--sage-dark);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
+
+.social-linkedin { color: #0A66C2; }
+.social-facebook { color: #1877F2; }
+/* Instagram uses inline SVG gradient */
 
 .ig-posts {
   display: grid;
@@ -1242,7 +1244,7 @@ footer a:hover { color: var(--gold); }
   <div class="hero-content">
     <div class="hero-questions">
       <span>מצאתם את עצמכם דוחים שיחה חשובה כי לא ידעתם איך הצד השני יגיב?</span>
-      <span>מרגישים שלפעמים אתם צריכים להחזיק הכול לבד?</span>
+      <span>מרגישות שלפעמים אתן צריכות להחזיק הכול לבד?</span>
       <span>רוצים להוביל אנשים - בלי לאבד את עצמכם בדרך?</span>
     </div>
 
