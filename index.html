@@ -86,10 +86,10 @@ img { max-width: 100%; display: block; }
   padding: 0 24px;
 }
 
-section { padding: 90px 0; position: relative; }
+section { padding: 48px 0; position: relative; }
 
 @media (max-width: 768px) {
-  section { padding: 60px 0; }
+  section { padding: 36px 0; }
   body { font-size: 16px; }
 }
 
@@ -290,7 +290,7 @@ section { padding: 90px 0; position: relative; }
   background: var(--sage-dark);
   color: var(--cream-light);
   text-align: center;
-  padding: 110px 0;
+  padding: 64px 0;
 }
 
 .quote-mark {
@@ -321,8 +321,8 @@ section { padding: 90px 0; position: relative; }
 
 .quote-extension {
   max-width: 720px;
-  margin: 60px auto 0;
-  padding-top: 40px;
+  margin: 32px auto 0;
+  padding-top: 24px;
   border-top: 1px solid rgba(255,255,255,0.15);
   font-size: clamp(16px, 1.8vw, 19px);
   line-height: 1.7;
@@ -603,10 +603,13 @@ section { padding: 90px 0; position: relative; }
   }
 }
 
-/* === FOR WHO === */
+/* === FOR WHO (dark contrast) === */
 .for-who {
-  background: var(--cream-light);
+  background: var(--sage-dark);
 }
+
+.for-who .section-eyebrow { color: var(--gold); }
+.for-who .section-title { color: var(--cream-light); }
 
 .for-who-list {
   max-width: 720px;
@@ -616,12 +619,12 @@ section { padding: 90px 0; position: relative; }
 
 .for-who-list li {
   padding: 22px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255,255,255,0.13);
   display: flex;
   align-items: flex-start;
   gap: 18px;
   font-size: 18px;
-  color: var(--ink-soft);
+  color: rgba(255,255,255,0.92);
   line-height: 1.5;
 }
 
@@ -632,8 +635,8 @@ section { padding: 90px 0; position: relative; }
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--sage-dark);
-  color: var(--cream-light);
+  background: var(--gold);
+  color: var(--sage-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -652,10 +655,10 @@ section { padding: 90px 0; position: relative; }
 
 .about-me-grid {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 60px;
-  align-items: start;
-  max-width: 900px;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 880px;
   margin: 0 auto;
 }
 
@@ -668,8 +671,8 @@ section { padding: 90px 0; position: relative; }
 }
 
 .about-me-photo {
-  width: 280px;
-  height: 360px;
+  width: 260px;
+  height: 330px;
   border-radius: 14px;
   margin: 0 auto;
   position: relative;
@@ -694,14 +697,18 @@ section { padding: 90px 0; position: relative; }
 .testimonials {
   background: linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%);
   overflow: hidden;
-  padding: 90px 0 80px;
+  padding: 56px 0 50px;
 }
 
 .testimonials-header {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 50px;
+  max-width: 960px;
+  margin: 0 auto 36px;
   padding: 0 24px;
+}
+
+.testimonials-header .section-title {
+  font-size: clamp(22px, 3vw, 32px);
 }
 
 
@@ -777,7 +784,7 @@ section { padding: 90px 0; position: relative; }
 /* === DETAILS CARDS === */
 .details {
   background: var(--cream-light);
-  padding: 80px 0;
+  padding: 64px 0;
 }
 
 .details-header {
@@ -840,7 +847,7 @@ section { padding: 90px 0; position: relative; }
   font-size: 22px;
   font-weight: 700;
   line-height: 1.35;
-  color: var(--ink);
+  color: var(--sage-dark);
 }
 
 .detail-sub {
@@ -855,7 +862,7 @@ section { padding: 90px 0; position: relative; }
 .final-cta {
   background: linear-gradient(135deg, var(--cream) 0%, var(--cream-light) 100%);
   text-align: center;
-  padding: 110px 0;
+  padding: 80px 0;
   position: relative;
   overflow: hidden;
 }
@@ -895,6 +902,10 @@ section { padding: 90px 0; position: relative; }
   margin-bottom: 18px;
   line-height: 1.1;
   letter-spacing: -0.02em;
+}
+
+.cta-accent {
+  color: var(--sage-dark);
 }
 
 .final-cta-sub {
@@ -1059,9 +1070,9 @@ section { padding: 90px 0; position: relative; }
 
 /* === INSTAGRAM === */
 .instagram-section {
-  background: var(--cream);
+  background: var(--cream-light);
   text-align: center;
-  padding: 70px 0;
+  padding: 56px 0;
 }
 
 .ig-handle {
@@ -1298,7 +1309,7 @@ footer a:hover { color: var(--gold); }
             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
         </span>
-        <div class="framework-text">קבוצה אינטימית, עד 15 משתתפים.</div>
+        <div class="framework-text">קבוצה אינטימית, עד 15 משתתפים</div>
       </div>
 
       <div class="framework-item">
@@ -1311,7 +1322,7 @@ footer a:hover { color: var(--gold); }
             <path d="M8 21h8"/>
           </svg>
         </span>
-        <div class="framework-text">מנחה ושני אסיסטנטים תומכים לאורך הסדנה.</div>
+        <div class="framework-text">מנחה ושני אסיסטנטים תומכים לאורך הסדנה</div>
       </div>
 
       <div class="framework-item">
@@ -1321,7 +1332,7 @@ footer a:hover { color: var(--gold); }
             <path d="M9 12l2 2 4-4"/>
           </svg>
         </span>
-        <div class="framework-text">מרחב דיסקרטי ובטוח - משתפים רק מה שמרגיש לכם נכון.</div>
+        <div class="framework-text">מרחב דיסקרטי ובטוח - משתפים רק מה שמרגיש לכם נכון</div>
       </div>
 
       <div class="framework-item">
@@ -1330,7 +1341,7 @@ footer a:hover { color: var(--gold); }
             <path d="M12 2l1.5 5h5l-4 3 1.5 5-4-3-4 3 1.5-5-4-3h5L12 2z"/>
           </svg>
         </span>
-        <div class="framework-text">תוכן מותאם לכל משתתף - ללא צורך בניסיון קודם.</div>
+        <div class="framework-text">תוכן מותאם לכל משתתף - ללא צורך בניסיון קודם</div>
       </div>
 
       <div class="framework-item">
@@ -1340,7 +1351,7 @@ footer a:hover { color: var(--gold); }
             <circle cx="12" cy="10" r="3"/>
           </svg>
         </span>
-        <div class="framework-text">הגעה קלה וחניה נוחה באזור.</div>
+        <div class="framework-text">הגעה קלה וחניה נוחה באזור</div>
       </div>
 
       <div class="framework-item">
@@ -1353,7 +1364,7 @@ footer a:hover { color: var(--gold); }
             <line x1="14" y1="2" x2="14" y2="4"/>
           </svg>
         </span>
-        <div class="framework-text">פינת קפה וכיבוד קל.</div>
+        <div class="framework-text">פינת קפה וכיבוד קל</div>
       </div>
 
     </div>
@@ -1419,6 +1430,25 @@ footer a:hover { color: var(--gold); }
     </div>
   </div>
 </section>
+
+<!-- INSTAGRAM -->
+<section class="instagram-section">
+  <div class="container">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
+      <div class="section-eyebrow">תוכן נוסף</div>
+      <h2 class="section-title" style="font-size: clamp(26px, 4vw, 36px); margin-bottom: 12px;">עקבו אחריי באינסטגרם</h2>
+      <p style="color: var(--ink-soft);">שם אני משתף מהסדנאות, מהמחשבות, ומהדרך.</p>
+    </div>
+
+    <div class="ig-posts">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DR1MsQ-ggRU/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DXxfEtogv3W/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DX58w0RiLdK/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
+    </div>
+  </div>
+</section>
+
+<script async src="https://www.instagram.com/embed.js"></script>
 
 <!-- TESTIMONIALS CAROUSEL -->
 <section class="testimonials" id="testimonials">
@@ -1499,7 +1529,7 @@ footer a:hover { color: var(--gold); }
 <!-- FINAL CTA + FORM -->
 <section class="final-cta" id="register">
   <div class="final-cta-inner">
-    <h2>בואו להצטרף<br>לדור חדש של מנהיגות.</h2>
+    <h2>בואו להצטרף<br>ל<span class="cta-accent">דור חדש של מנהיגות</span>.</h2>
     <p class="final-cta-sub">לאחר ההרשמה אחזור אליכם לתיאום שיחת הכנה של עד 10 דק׳.</p>
 
     <form class="reg-form" id="reg-form">
@@ -1521,7 +1551,7 @@ footer a:hover { color: var(--gold); }
       <label class="form-checkbox">
         <input type="checkbox" id="marketing-consent" name="marketing-consent" required>
         <span class="form-checkbox-box"></span>
-        <span class="form-checkbox-text">אני מאשר.ת קבלת דיוור והודעות מרן ברודר</span>
+        <span class="form-checkbox-text">אני מאשר.ת קבלת דיוור והודעות</span>
       </label>
 
       <div class="form-consent">
@@ -1534,25 +1564,6 @@ footer a:hover { color: var(--gold); }
     </form>
   </div>
 </section>
-
-<!-- INSTAGRAM -->
-<section class="instagram-section">
-  <div class="container">
-    <div style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
-      <div class="section-eyebrow">תוכן נוסף</div>
-      <h2 class="section-title" style="font-size: clamp(26px, 4vw, 36px); margin-bottom: 12px;">עקבו אחריי באינסטגרם</h2>
-      <p style="color: var(--ink-soft);">שם אני משתף מהסדנאות, מהמחשבות, ומהדרך.</p>
-    </div>
-
-    <div class="ig-posts">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DR1MsQ-ggRU/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DXxfEtogv3W/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DX58w0RiLdK/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
-    </div>
-  </div>
-</section>
-
-<script async src="https://www.instagram.com/embed.js"></script>
 
 <!-- TALK TO ME (WhatsApp) -->
 <section class="talk-to-me">
