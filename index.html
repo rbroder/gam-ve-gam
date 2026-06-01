@@ -1062,6 +1062,11 @@ section { padding: 48px 0; position: relative; }
   gap: 10px;
 }
 
+.date-picker-single {
+  grid-template-columns: 1fr;
+  max-width: 240px;
+}
+
 .date-pick {
   cursor: pointer;
   display: block;
@@ -1646,7 +1651,7 @@ footer a:hover { color: var(--gold); }
     <div class="ig-posts">
       <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DR1MsQ-ggRU/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
       <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DXxfEtogv3W/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DX58w0RiLdK/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY6_IrWiDmX/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
     </div>
   </div>
 </section>
@@ -1708,19 +1713,8 @@ footer a:hover { color: var(--gold); }
             <circle cx="12" cy="15.5" r="1.4" fill="currentColor"/>
           </svg>
         </span>
-        <div class="detail-dates">
-          <div class="date-row">
-            <span class="date-d">8.6</span>
-            <span class="date-sep">|</span>
-            <span class="date-t">19:30</span>
-          </div>
-          <div class="date-row">
-            <span class="date-d">20.7</span>
-            <span class="date-sep">|</span>
-            <span class="date-t">19:30</span>
-            <span class="date-new-tag">חדש</span>
-          </div>
-        </div>
+        <div class="detail-value">יום שני, 20.7</div>
+        <div class="detail-sub">19:30</div>
       </div>
 
       <div class="detail-card">
@@ -1748,17 +1742,10 @@ footer a:hover { color: var(--gold); }
 
     <form class="reg-form" id="reg-form">
       <div class="reg-form-row">
-        <label class="date-picker-label">לאיזו סדנה תרצו להירשם?</label>
-        <div class="date-picker">
+        <label class="date-picker-label">סדנה</label>
+        <div class="date-picker date-picker-single">
           <label class="date-pick">
-            <input type="radio" name="workshop-date" value="8.6.26" required>
-            <span class="date-pick-card">
-              <span class="date-pick-date">יום שני, 8.6</span>
-              <span class="date-pick-time">19:30</span>
-            </span>
-          </label>
-          <label class="date-pick">
-            <input type="radio" name="workshop-date" value="20.7.26" required>
+            <input type="radio" name="workshop-date" value="20.7.26" checked required>
             <span class="date-pick-card">
               <span class="date-pick-date">יום שני, 20.7</span>
               <span class="date-pick-time">19:30</span>
