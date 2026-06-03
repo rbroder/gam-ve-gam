@@ -159,22 +159,19 @@ section { padding: 48px 0; position: relative; }
   .nav-links a:not(.nav-cta) { display: none; }
 }
 
-/* === HERO === */
+/* === HERO (split: text + vertical video) === */
 .hero {
   min-height: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: center;
+  padding: 100px 0 50px;
   position: relative;
   overflow: hidden;
-  padding: 110px 0 60px;
+  display: flex;
+  align-items: center;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 901px) {
   .hero {
-    min-height: 80vh;
-    align-items: center;
+    min-height: 100vh;
     padding: 100px 0 60px;
   }
 }
@@ -189,33 +186,42 @@ section { padding: 48px 0; position: relative; }
   pointer-events: none;
 }
 
-.hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 24px; }
-
-.hero-questions {
-  font-size: clamp(16px, 2vw, 19px);
-  font-weight: 500;
-  font-style: italic;
-  color: var(--ink);
-  line-height: 1.7;
-  margin-bottom: 30px;
-  opacity: 0;
-  animation: fadeUp 0.9s ease 0.1s forwards;
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
 }
 
-.hero-questions span {
-  display: block;
-  margin: 2px 0;
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    max-width: 500px;
+  }
+}
+
+.hero-text { text-align: right; }
+
+@media (max-width: 900px) {
+  .hero-text { text-align: center; order: 2; }
 }
 
 .hero-title {
-  font-size: clamp(48px, 9vw, 88px);
+  font-size: clamp(48px, 8.5vw, 92px);
   font-weight: 800;
   color: var(--ink);
-  margin: 18px 0 14px;
+  margin: 0 0 18px;
   opacity: 0;
-  animation: fadeUp 0.9s ease 0.35s forwards;
+  animation: fadeUp 0.9s ease 0.2s forwards;
   letter-spacing: -0.025em;
-  line-height: 1.05;
+  line-height: 1.02;
 }
 
 .hero-title em {
@@ -230,29 +236,25 @@ section { padding: 48px 0; position: relative; }
   font-weight: 400;
   margin-bottom: 36px;
   opacity: 0;
-  animation: fadeUp 0.9s ease 0.55s forwards;
+  animation: fadeUp 0.9s ease 0.4s forwards;
   line-height: 1.55;
-}
-
-.hero-subtitle-line2 {
-  display: inline-block;
-  margin-top: 4px;
-  font-size: 0.88em;
-  color: var(--muted);
 }
 
 .hero-cta-row {
   display: flex;
   gap: 14px;
-  justify-content: center;
   flex-wrap: wrap;
   opacity: 0;
-  animation: fadeUp 0.9s ease 0.75s forwards;
+  animation: fadeUp 0.9s ease 0.6s forwards;
+}
+
+@media (max-width: 900px) {
+  .hero-cta-row { justify-content: center; }
 }
 
 .btn {
   display: inline-block;
-  padding: 15px 32px;
+  padding: 14px 28px;
   border-radius: 100px;
   font-weight: 600;
   font-size: 16px;
@@ -285,15 +287,52 @@ section { padding: 48px 0; position: relative; }
   color: var(--cream-light);
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 26px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--muted);
-  font-size: 13px;
+.hero-video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  aspect-ratio: 720/1024; /* cropped from 9:16: -5% top, -15% bottom */
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 70px rgba(61, 90, 64, 0.25),
+    0 10px 30px rgba(0,0,0,0.15);
   opacity: 0;
-  animation: fadeUp 1s ease 1.1s forwards, bounce 2s ease-in-out 2.2s infinite;
+  animation: fadeIn 1.2s ease 0.3s forwards;
+  transform: rotate(-1.5deg);
+}
+
+@media (max-width: 900px) {
+  .hero-video-wrap {
+    order: 1;
+    max-width: 280px;
+    transform: rotate(0);
+  }
+}
+
+.hero-video-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%; /* 5% off top, 15% off bottom */
+  display: block;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.15) 100%);
+  pointer-events: none;
 }
 
 @keyframes fadeUp {
@@ -301,9 +340,16 @@ section { padding: 48px 0; position: relative; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: rotate(-1.5deg) scale(0.96); }
+  to { opacity: 1; transform: rotate(-1.5deg) scale(1); }
+}
+
+@media (max-width: 900px) {
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
 }
 
 /* === BUCKINGHAM QUOTE === */
@@ -1388,26 +1434,28 @@ footer a:hover { color: var(--gold); }
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO (split: text + vertical video) -->
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-questions">
-      <span>מצאתם את עצמכם דוחים שיחה חשובה כי לא ידעתם איך הצד השני יגיב?</span>
-      <span>מרגישות שלפעמים אתן צריכות להחזיק הכול לבד?</span>
-      <span>רוצים להוביל אנשים - בלי לאבד את עצמכם בדרך?</span>
+  <div class="hero-grid">
+
+    <div class="hero-text">
+      <h1 class="hero-title">מובילים <em>אחרת</em></h1>
+      <p class="hero-subtitle">מנהיגות מתוך חיבור בעולם העבודה</p>
+
+      <div class="hero-cta-row">
+        <a href="#register" class="btn btn-primary">להרשמה ולהזמנת מקום</a>
+        <a href="#about" class="btn btn-secondary">קראו על הסדנה</a>
+      </div>
     </div>
 
-    <h1 class="hero-title">מובילים <em>אחרת</em></h1>
-
-    <p class="hero-subtitle">מנהיגות מתוך חיבור בעולם העבודה</p>
-
-    <div class="hero-cta-row">
-      <a href="#register" class="btn btn-primary">להרשמה ולהזמנת מקום</a>
-      <a href="#about" class="btn btn-secondary">קראו על הסדנה</a>
+    <div class="hero-video-wrap">
+      <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
     </div>
+
   </div>
-
-  <div class="hero-scroll">↓ גלילה</div>
 </section>
 
 <!-- BUCKINGHAM QUOTE + EXTENSION -->
