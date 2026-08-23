@@ -876,7 +876,36 @@ section { padding: 48px 0; position: relative; }
 
 .details-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 28px;
+}
+
+.next-workshop {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 44px;
+}
+
+.next-workshop-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.next-workshop-desc {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.join-community {
+  text-align: center;
+  margin-top: 40px;
+  font-size: clamp(30px, 4.8vw, 48px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--sage-dark);
 }
 
 .details-cards {
@@ -1044,16 +1073,6 @@ section { padding: 48px 0; position: relative; }
   letter-spacing: -0.02em;
 }
 
-.cta-accent {
-  color: var(--sage-dark);
-}
-
-.final-cta-sub {
-  font-size: 18px;
-  color: var(--ink-soft);
-  margin-bottom: 40px;
-  line-height: 1.6;
-}
 
 .reg-form {
   background: var(--cream-light);
@@ -1117,7 +1136,7 @@ section { padding: 48px 0; position: relative; }
 
 .date-picker-single {
   grid-template-columns: 1fr;
-  max-width: 240px;
+  max-width: 300px;
 }
 
 .date-pick {
@@ -1155,6 +1174,14 @@ section { padding: 48px 0; position: relative; }
 .date-pick input[type="radio"]:focus-visible + .date-pick-card {
   outline: 2px solid var(--sage-dark);
   outline-offset: 2px;
+}
+
+.date-pick-name {
+  display: block;
+  font-weight: 700;
+  color: var(--sage-dark);
+  font-size: 15px;
+  margin-bottom: 4px;
 }
 
 .date-pick-date {
@@ -1335,19 +1362,18 @@ section { padding: 48px 0; position: relative; }
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   align-items: start;
-  max-width: 800px;
+  max-width: 920px;
   margin: 0 auto;
   min-height: 520px; /* reserve space so IG embed loading doesn't shift layout */
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .ig-posts { grid-template-columns: 1fr; max-width: 420px; min-height: 1600px; }
 }
 
 .ig-posts blockquote.instagram-media,
 .ig-posts iframe {
   width: 100% !important;
-  min-width: 0 !important;
   margin: 0 !important;
   border-radius: 18px !important;
   overflow: hidden !important;
@@ -1486,7 +1512,6 @@ footer a:hover { color: var(--gold); }
       <div class="about-workshop-image"></div>
 
       <div class="about-workshop-text">
-        <div class="section-eyebrow">על הסדנה</div>
         <h2 class="section-title">ללמוד להוביל אחרת</h2>
 
         <p>בין אם מדובר בניהול צוות בינלאומי ובין אם בהובלת עסק עצמאי מול לקוחות וספקים - אנחנו רגילים ״להחזיק הכול לבד״. לקבל את כל ההחלטות, לשדר שהכול בשליטה ולתת תשובות גם כשבפנים יש עומס, בדידות או ספק.</p>
@@ -1504,7 +1529,6 @@ footer a:hover { color: var(--gold); }
 <section class="takeaways" id="takeaways">
   <div class="container">
     <div class="takeaways-header">
-      <div class="section-eyebrow">מה נעשה בסדנה</div>
       <h2 class="section-title">כלים שיישארו איתכם הרבה אחרי</h2>
     </div>
 
@@ -1533,7 +1557,6 @@ footer a:hover { color: var(--gold); }
 <section class="framework">
   <div class="container">
     <div style="text-align: center; max-width: 700px; margin: 0 auto 45px;">
-      <div class="section-eyebrow">המסגרת</div>
       <h2 class="section-title">מה מחכה לכם בסדנה</h2>
     </div>
 
@@ -1613,8 +1636,7 @@ footer a:hover { color: var(--gold); }
 <!-- FOR WHO -->
 <section class="for-who">
   <div class="container">
-    <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
-      <div class="section-eyebrow">למי הסדנה</div>
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 28px;">
       <h2 class="section-title">אם זה מדבר אליך, זה בשבילך</h2>
     </div>
 
@@ -1639,7 +1661,6 @@ footer a:hover { color: var(--gold); }
 <section class="about-me" id="me">
   <div class="container">
     <div style="text-align: center; margin-bottom: 50px;">
-      <div class="section-eyebrow">מי מנחה</div>
       <h2 class="section-title">קצת עלי</h2>
     </div>
 
@@ -1687,20 +1708,44 @@ footer a:hover { color: var(--gold); }
     </div>
 
     <div class="ig-posts">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DR1MsQ-ggRU/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DXxfEtogv3W/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY6_IrWiDmX/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
+      <blockquote class="ig-embed-pending" data-instgrm-permalink="https://www.instagram.com/p/DXxfEtogv3W/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
+      <blockquote class="ig-embed-pending" data-instgrm-permalink="https://www.instagram.com/p/DY6_IrWiDmX/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
+      <blockquote class="ig-embed-pending" data-instgrm-permalink="https://www.instagram.com/p/DR1MsQ-ggRU/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:14px; box-shadow:0 4px 20px rgba(0,0,0,0.08); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;"></blockquote>
     </div>
   </div>
 </section>
 
 <script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  // Instagram's embed.js auto-processes any .instagram-media element the
+  // instant it loads, and the very first one it touches tends to lose a
+  // timing race (its caption overlaps the thumbnail instead of sitting
+  // below it) because the page hasn't fully settled yet. Withholding the
+  // class until after 'load' + a short buffer, then processing all three
+  // together ourselves, gives post 1 the same settled conditions the
+  // others get "for free" by loading later.
+  function startInstagramEmbeds(attemptsLeft) {
+    if (attemptsLeft === undefined) attemptsLeft = 30; // ~5s of polling, then give up quietly
+    if (!(window.instgrm && window.instgrm.Embeds)) {
+      if (attemptsLeft <= 0) return; // embed.js never loaded (blocked/offline) - nothing more to do
+      setTimeout(function () { startInstagramEmbeds(attemptsLeft - 1); }, 150);
+      return;
+    }
+    document.querySelectorAll('.ig-embed-pending').forEach(function (el) {
+      el.classList.remove('ig-embed-pending');
+      el.classList.add('instagram-media');
+    });
+    window.instgrm.Embeds.process();
+  }
+  window.addEventListener('load', function () {
+    setTimeout(startInstagramEmbeds, 400);
+  });
+</script>
 
 <!-- TESTIMONIALS CAROUSEL -->
 <section class="testimonials" id="testimonials">
   <div class="testimonials-header">
-    <div class="section-eyebrow">המלצות</div>
-    <h2 class="section-title">עשרות משתתפים כבר עברו את הסדנה:</h2>
+    <h2 class="section-title">עשרות משתתפים כבר עברו את הסדנה</h2>
   </div>
 
   <div class="carousel-wrap">
@@ -1724,8 +1769,12 @@ footer a:hover { color: var(--gold); }
 <section class="details">
   <div class="container">
     <div class="details-header">
-      <div class="section-eyebrow">איפה ומתי</div>
       <h2 class="section-title">הפרטים החשובים</h2>
+    </div>
+
+    <div class="next-workshop">
+      <div class="next-workshop-title">הסדנה הבאה: מובילים אחרת - פוגשים מציאות</div>
+      <p class="next-workshop-desc">מפגש מעשי על תקשורת, נוכחות ואמפתיה מול האתגרים והמציאות בשטח.</p>
     </div>
 
     <div class="details-cards">
@@ -1751,8 +1800,8 @@ footer a:hover { color: var(--gold); }
             <circle cx="12" cy="15.5" r="1.4" fill="currentColor"/>
           </svg>
         </span>
-        <div class="detail-value">יום שני, 20.7</div>
-        <div class="detail-sub">19:30</div>
+        <div class="detail-value">יום שני, 7.9</div>
+        <div class="detail-sub">20:00</div>
       </div>
 
       <div class="detail-card">
@@ -1765,28 +1814,30 @@ footer a:hover { color: var(--gold); }
           </svg>
         </span>
         <div class="detail-value">150 ש״ח</div>
-        <div class="detail-sub">כולל שיחת היכרות וסיכום כתוב</div>
+        <div class="detail-sub">בוגרי סדנאות קודמות זכאים ל-20% הנחה</div>
       </div>
 
     </div>
+
+    <p class="join-community">הצטרפו לקהילה של מנהיגות אחרת.</p>
   </div>
 </section>
 
 <!-- FINAL CTA + FORM -->
 <section class="final-cta" id="register">
   <div class="final-cta-inner">
-    <h2>בואו להצטרף<br>ל<span class="cta-accent">דור חדש של מנהיגות</span>.</h2>
-    <p class="final-cta-sub">לאחר ההרשמה אחזור אליכם לתיאום שיחת הכנה</p>
+    <h2>להרשמה</h2>
 
     <form class="reg-form" id="reg-form">
       <div class="reg-form-row">
         <label class="date-picker-label">סדנה</label>
         <div class="date-picker date-picker-single">
           <label class="date-pick">
-            <input type="radio" name="workshop-date" value="20.7.26" checked required>
+            <input type="radio" name="workshop-date" value="7.9.26" checked required>
             <span class="date-pick-card">
-              <span class="date-pick-date">יום שני, 20.7</span>
-              <span class="date-pick-time">19:30</span>
+              <span class="date-pick-name">מובילים אחרת - פוגשים מציאות</span>
+              <span class="date-pick-date">יום שני, 7.9</span>
+              <span class="date-pick-time">20:00</span>
             </span>
           </label>
         </div>
@@ -1927,7 +1978,7 @@ window.addEventListener('scroll', () => {
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqsl4IBlMvYf0OCe3lEIrki4bHJJS3Cn4A5LxhTOwFTnH4nWXZGZPmlbmll_HMxYPc/exec';
 
   // ⚠️ REPLACE WITH YOUR GROW PAYMENT LINK
-  const GROW_PAYMENT_URL = 'https://pay.grow.link/MTAxMjA0~63f53f079b547975c7c62bc958f7e9db-MzQ4NTMwMw';
+  const GROW_PAYMENT_URL = 'https://pay.grow.link/MTAxMjA0~8f76bf922ee7cf2338fd1cf715822cd2-Mzg3MzMyMA';
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
