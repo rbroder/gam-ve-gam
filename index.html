@@ -1057,13 +1057,22 @@ section { padding: 48px 0; position: relative; }
 }
 
 .final-cta-prompt {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  font-size: clamp(30px, 4.8vw, 48px);
+  max-width: 920px;
+  margin: 0 auto 28px;
+  padding: 0 24px;
+  font-size: clamp(28px, 3.6vw, 48px);
   line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--sage-dark);
-  margin-bottom: 28px;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .final-cta-prompt { white-space: normal; }
 }
 
 
@@ -1816,8 +1825,8 @@ footer a:hover { color: var(--gold); }
 
 <!-- FINAL CTA + FORM -->
 <section class="final-cta" id="register">
+  <p class="final-cta-prompt">הצטרפו לקהילה של מנהיגות אחרת</p>
   <div class="final-cta-inner">
-    <p class="final-cta-prompt">הצטרפו לקהילה של מנהיגות אחרת</p>
 
     <form class="reg-form" id="reg-form">
       <div class="reg-form-row">
