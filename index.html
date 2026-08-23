@@ -898,16 +898,6 @@ section { padding: 48px 0; position: relative; }
   line-height: 1.6;
 }
 
-.join-community {
-  text-align: center;
-  margin-top: 40px;
-  font-size: clamp(30px, 4.8vw, 48px);
-  line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--sage-dark);
-}
-
 .details-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1031,7 +1021,7 @@ section { padding: 48px 0; position: relative; }
 .final-cta {
   background: linear-gradient(135deg, var(--cream) 0%, var(--cream-light) 100%);
   text-align: center;
-  padding: 80px 0;
+  padding: 40px 0 80px;
   position: relative;
   overflow: hidden;
 }
@@ -1066,11 +1056,14 @@ section { padding: 48px 0; position: relative; }
   padding: 0 24px;
 }
 
-.final-cta h2 {
-  font-size: clamp(34px, 5.5vw, 56px);
-  margin-bottom: 18px;
-  line-height: 1.1;
+.final-cta-prompt {
+  text-align: center;
+  font-size: clamp(30px, 4.8vw, 48px);
+  line-height: 1.15;
+  font-weight: 700;
   letter-spacing: -0.02em;
+  color: var(--sage-dark);
+  margin-bottom: 28px;
 }
 
 
@@ -1818,15 +1811,13 @@ footer a:hover { color: var(--gold); }
       </div>
 
     </div>
-
-    <p class="join-community">הצטרפו לקהילה של מנהיגות אחרת.</p>
   </div>
 </section>
 
 <!-- FINAL CTA + FORM -->
 <section class="final-cta" id="register">
   <div class="final-cta-inner">
-    <h2>להרשמה</h2>
+    <p class="final-cta-prompt">הצטרפו לקהילה של מנהיגות אחרת</p>
 
     <form class="reg-form" id="reg-form">
       <div class="reg-form-row">
