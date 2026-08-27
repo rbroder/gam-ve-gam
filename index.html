@@ -56,7 +56,7 @@ fbq('track', 'PageView');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 
 body {
   font-family: 'Assistant', system-ui, sans-serif;
@@ -670,6 +670,15 @@ section { padding: 48px 0; position: relative; }
   line-height: 1.5;
 }
 
+.framework-item { align-items: flex-start; }
+
+.framework-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
 .framework-item-wide {
   grid-column: 1 / -1;
   max-width: 50%;
@@ -881,33 +890,48 @@ section { padding: 48px 0; position: relative; }
 
 .workshop-poster {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 44px;
   max-width: 1034px;
   margin: 0 auto 44px;
-  background: var(--cream);
-  border: 1px solid var(--line);
+  background: linear-gradient(135deg, var(--sage-dark) 0%, #2c4030 100%);
   border-radius: 26px;
-  padding: 40px 40px 40px 34px;
-  box-shadow: 0 20px 50px rgba(42, 42, 42, 0.06);
+  padding: 44px 44px 44px 38px;
+  box-shadow: 0 25px 60px rgba(42, 42, 42, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.workshop-poster::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 60% at 85% 0%, rgba(196, 165, 123, 0.16), transparent 65%),
+    radial-gradient(ellipse 45% 50% at 5% 100%, rgba(184, 92, 59, 0.14), transparent 65%);
+  pointer-events: none;
 }
 
 .workshop-poster .next-workshop {
   width: 620px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .workshop-poster .workshop-poster-media {
   width: 300px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 860px) {
   .workshop-poster {
     flex-direction: column;
     align-items: center;
-    padding: 32px 26px 36px;
+    padding: 36px 26px 40px;
     gap: 30px;
   }
 
@@ -933,6 +957,18 @@ section { padding: 48px 0; position: relative; }
   gap: 16px;
 }
 
+.workshop-poster-cta {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  text-align: center;
+  margin-top: 53px;
+}
+
+@media (max-width: 860px) {
+  .workshop-poster-cta { margin-top: 0; }
+}
+
 @media (max-width: 860px) {
   .workshop-poster-media { order: 1; }
 }
@@ -946,8 +982,8 @@ section { padding: 48px 0; position: relative; }
   border-radius: 24px;
   overflow: hidden;
   box-shadow:
-    0 24px 50px rgba(61, 90, 64, 0.22),
-    0 8px 22px rgba(0,0,0,0.12);
+    0 24px 50px rgba(0, 0, 0, 0.35),
+    0 8px 22px rgba(0,0,0,0.25);
   transform: rotate(-1.5deg);
 }
 
@@ -961,7 +997,7 @@ section { padding: 48px 0; position: relative; }
   inset: 0;
   border-radius: 24px;
   pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
 }
 
 .workshop-poster-video {
@@ -972,18 +1008,32 @@ section { padding: 48px 0; position: relative; }
   display: block;
 }
 
-.next-workshop-title {
-  font-size: 24px;
+.workshop-poster-eyebrow {
+  font-size: 13px;
   font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 10px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.next-workshop-title {
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--cream-light);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.next-workshop-title strong {
+  color: var(--gold);
+  font-weight: 800;
 }
 
 .next-workshop-desc {
-  font-size: 16px;
+  font-size: 16.5px;
   font-weight: 400;
-  color: var(--ink-soft);
-  line-height: 1.6;
+  color: rgba(251, 247, 240, 0.82);
+  line-height: 1.65;
 }
 
 .workshop-agenda {
@@ -991,10 +1041,10 @@ section { padding: 48px 0; position: relative; }
 }
 
 .workshop-agenda-label {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
-  text-decoration: underline;
-  color: var(--ink);
+  letter-spacing: 0.1em;
+  color: var(--gold);
   margin-bottom: 14px;
 }
 
@@ -1002,31 +1052,33 @@ section { padding: 48px 0; position: relative; }
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .workshop-agenda-list li {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 16px;
-  color: var(--ink-soft);
+  font-size: 16.5px;
+  font-weight: 400;
+  color: rgba(251, 247, 240, 0.82);
   line-height: 1.6;
 }
 
 .workshop-agenda-list li strong {
-  color: var(--ink);
+  font-weight: 700;
+  color: var(--cream-light);
 }
 
 .workshop-agenda-closing {
-  margin-top: 16px;
+  margin-top: 20px;
   font-size: 16px;
   font-weight: 600;
-  color: var(--sage-dark);
+  color: var(--gold);
 }
 
 .agenda-dot {
-  color: var(--sage-dark);
+  color: var(--gold);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -1597,10 +1649,10 @@ footer a:hover { color: var(--gold); }
   <div class="nav-inner">
     <div class="nav-logo">מובילים אחרת</div>
     <div class="nav-links">
-      <a href="#about">על הסדנה</a>
-      <a href="#takeaways">התכנים</a>
+      <a href="#about">התכנים</a>
       <a href="#me">קצת עלי</a>
       <a href="#testimonials">המלצות</a>
+      <a href="#details">הסדנה הבאה</a>
       <a href="#register" class="nav-cta">להרשמה</a>
     </div>
   </div>
@@ -1616,7 +1668,7 @@ footer a:hover { color: var(--gold); }
 
       <div class="hero-cta-row">
         <a href="#register" class="btn btn-primary">להרשמה ולהזמנת מקום</a>
-        <a href="#about" class="btn btn-secondary">קראו על הסדנה</a>
+        <a href="#details" class="btn btn-secondary">קראו על הסדנה הבאה</a>
       </div>
     </div>
 
@@ -1668,25 +1720,25 @@ footer a:hover { color: var(--gold); }
 <section class="takeaways" id="takeaways">
   <div class="container">
     <div class="takeaways-header">
-      <h2 class="section-title">כלים שיישארו איתכם הרבה אחרי</h2>
+      <h2 class="section-title">עקרונות שילוו אתכם קדימה</h2>
     </div>
 
     <ul class="takeaways-list">
       <li>
         <span class="takeaway-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></span>
-        <span><strong>מנהיגות:</strong> נלמד איך להתמודד עם מורכבות רגשית מבלי לאבד סמכות, גבולות ובהירות (ניהולית או עסקית).</span>
+        <span><strong>מנהיגות ומורכבות:</strong> התמודדות עם מורכבות רגשית מבלי לאבד סמכות, גבולות ובהירות ניהולית או עסקית.</span>
       </li>
       <li>
         <span class="takeaway-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></span>
-        <span><strong>שחרור "החזקת-היתר":</strong> נקבל כלים פרקטיים להפחתת עומס, שחיקה והתחושה ש"הכול יושב רק על הכתפיים שלי".</span>
+        <span><strong>שחרור "החזקת-היתר":</strong> הפחתת עומס, שחיקה והתחושה ש"הכול יושב רק על הכתפיים שלי".</span>
       </li>
       <li>
         <span class="takeaway-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></span>
-        <span><strong>בניית אמון ורתימה:</strong> נבין איך לייצר חיבור ומחויבות דרך תקשורת פתוחה, נוכחות והובלה אנושית.</span>
+        <span><strong>בניית אמון ורתימה:</strong> יצירת חיבור ומחויבות דרך תקשורת פתוחה, נוכחות והובלה אנושית בגובה העיניים.</span>
       </li>
       <li>
         <span class="takeaway-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></span>
-        <span><strong>תרבות של ביטחון פסיכולוגי:</strong> נלמד איך ליצור סביבה מעצימה שמבטלת את הפחד מלטעות ומעודדת פתיחות ותוצאות גבוהות.</span>
+        <span><strong>תרבות של ביטחון פסיכולוגי:</strong> יצירת סביבה שמפיגה פחד מטעויות ומעודדת פתיחות, למידה ותוצאות גבוהות.</span>
       </li>
     </ul>
   </div>
@@ -1710,20 +1762,35 @@ footer a:hover { color: var(--gold); }
             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
         </span>
-        <div class="framework-text">קבוצה אינטימית, עד 15 משתתפים</div>
+        <div>
+          <div class="framework-title">קבוצה קטנה</div>
+          <div class="framework-text">מרחב שמאפשר השתתפות, שיח אישי וחיבור בין המשתתפים.</div>
+        </div>
       </div>
 
       <div class="framework-item">
         <span class="framework-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 17a4 4 0 0 1-4-4V6"/>
-            <path d="M13 17a4 4 0 0 0 4-4V6"/>
-            <path d="M7 6h10"/>
-            <path d="M12 17v4"/>
-            <path d="M8 21h8"/>
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
           </svg>
         </span>
-        <div class="framework-text">מנחה ואסיסטנט לאורך הסדנה</div>
+        <div>
+          <div class="framework-title">למידה דרך התנסות</div>
+          <div class="framework-text">פחות הרצאה, יותר תרגול, שיחה וחוויה.</div>
+        </div>
+      </div>
+
+      <div class="framework-item">
+        <span class="framework-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </span>
+        <div>
+          <div class="framework-title">חיבור למציאות</div>
+          <div class="framework-text">עבודה עם דילמות ואתגרים אמיתיים מהעולם המקצועי.</div>
+        </div>
       </div>
 
       <div class="framework-item">
@@ -1733,39 +1800,10 @@ footer a:hover { color: var(--gold); }
             <path d="M9 12l2 2 4-4"/>
           </svg>
         </span>
-        <div class="framework-text">מרחב בטוח - משתפים רק מה שמרגיש לכם נכון</div>
-      </div>
-
-      <div class="framework-item">
-        <span class="framework-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-          </svg>
-        </span>
-        <div class="framework-text">תוכן מותאם - ללא צורך בניסיון קודם</div>
-      </div>
-
-      <div class="framework-item">
-        <span class="framework-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-        </span>
-        <div class="framework-text">הגעה קלה וחניה נוחה באזור</div>
-      </div>
-
-      <div class="framework-item">
-        <span class="framework-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
-            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
-            <line x1="6" y1="2" x2="6" y2="4"/>
-            <line x1="10" y1="2" x2="10" y2="4"/>
-            <line x1="14" y1="2" x2="14" y2="4"/>
-          </svg>
-        </span>
-        <div class="framework-text">פינת קפה וכיבוד קל</div>
+        <div>
+          <div class="framework-title">מרחב בטוח בגובה העיניים</div>
+          <div class="framework-text">אין צורך בניסיון קודם, להרשים או לדעת את התשובה הנכונה.</div>
+        </div>
       </div>
 
     </div>
@@ -1905,36 +1943,72 @@ footer a:hover { color: var(--gold); }
 </section>
 
 <!-- DETAILS CARDS -->
-<section class="details" id="details">
+<section class="details">
   <div class="container">
-    <div class="details-header">
+    <div class="details-header" id="details">
       <h2 class="section-title">אז מה יש בסדנה הבאה?</h2>
     </div>
 
     <div class="workshop-poster">
       <div class="next-workshop">
-        <div class="next-workshop-title">מובילים אחרת - פוגשים מציאות</div>
-        <p class="next-workshop-desc">פותחים שנה באנרגיה חדשה: שעתיים קלילות של שיח, תרגול וחיבור בגובה העיניים על נוכחות ואמפתיה בתוך העומס היומיומי. מקום לעצור, לחייך ולמלא מצברים.</p>
+        <div class="workshop-poster-eyebrow">מובילים אחרת • פותחים שנה</div>
+        <div class="next-workshop-title">על <strong>אותנטיות</strong> ומנהיגות</div>
+        <p class="next-workshop-desc">שעתיים של שיח, תרגול וחיבור בגובה העיניים.<br>הזדמנות לעצור, להתבונן ולפתוח את השנה קצת אחרת 🌱</p>
 
         <div class="workshop-agenda">
-          <div class="workshop-agenda-label">תוכן הסדנה:</div>
+          <div class="workshop-agenda-label">מה בסדנה</div>
           <ul class="workshop-agenda-list">
-            <li><span class="agenda-dot">•</span><span><strong>הרחבת הכלים:</strong> רענון וצלילה עמוקה יותר לכלים הניהוליים והתקשורתיים.</span></li>
-            <li><span class="agenda-dot">•</span><span><strong>מפגש עם המציאות:</strong> שיח מעשי על החיבור והחיכוך של הכלים עם היום-יום בשטח.</span></li>
-            <li><span class="agenda-dot">•</span><span><strong>נטוורקינג:</strong> מרחב לחיבור, שיתוף וקשרים עם מובילים, בעלי עסקים ומנהלים נוספים.</span></li>
+            <li><span class="agenda-dot">•</span><span><strong>תרגול חוויתי:</strong> רענון וצלילה עמוקה יותר לכלים הניהוליים והתקשורתיים.</span></li>
+            <li><span class="agenda-dot">•</span><span><strong>שיח - אותנטיות בעבודה ובניהול:</strong> המורכבות והאתגרים בהבאת הקול האמיתי ליום-יום עמוס.</span></li>
+            <li><span class="agenda-dot">•</span><span><strong>הכרות וחיבורים חדשים:</strong> נטוורקינג בצורה קצת אחרת.</span></li>
           </ul>
-          <p class="workshop-agenda-closing">בתום הסדנה נסיים בהרמת כוסית ואיחולים לשנה החדשה 🥂</p>
+          <p class="workshop-agenda-closing">בסיום הסדנה נקיים הרמת כוסית לכבוד השנה החדשה 🥂</p>
         </div>
       </div>
 
       <div class="workshop-poster-media">
         <div class="workshop-poster-video-wrap">
-          <video class="workshop-poster-video" autoplay muted loop playsinline poster="assets/next-workshop-poster.jpg">
-            <source src="assets/next-workshop.mp4" type="video/mp4">
+          <video class="workshop-poster-video" id="workshop-poster-reel" autoplay muted playsinline poster="assets/next-workshop-5-poster.jpg" style="object-position: center 25%;">
+            <source src="assets/next-workshop-5.mp4" type="video/mp4">
           </video>
         </div>
+        <a href="#register" class="btn btn-primary workshop-poster-cta">קח אותי להרשמה</a>
       </div>
     </div>
+
+    <script>
+      // Cycles the "פוגשים מציאות" video through a short reel of clips,
+      // one after another, looping back to the start - a simple montage
+      // effect without needing to pre-merge the clips into one file.
+      (function () {
+        // Each clip frames people differently (seated circle vs. standing),
+        // so the crop focus point is tuned per clip rather than fixed.
+        // The first clip is a long take, so it's cut short at 2s (via
+        // maxDuration) to match the pace of the shorter clips that follow -
+        // there's no ffmpeg here to actually trim the file.
+        var reel = [
+          { src: 'assets/next-workshop-5.mp4', pos: 'center 25%' },
+          { src: 'assets/next-workshop-4.mp4', pos: 'center 25%' },
+          { src: 'assets/next-workshop-3.mp4', pos: 'center 35%' },
+          { src: 'assets/next-workshop-2.mp4', pos: 'center 20%' },
+          { src: 'assets/next-workshop.mp4', pos: 'center 38%', maxDuration: 2 }
+        ];
+        var video = document.getElementById('workshop-poster-reel');
+        if (!video) return;
+        var i = 0;
+        function advance() {
+          i = (i + 1) % reel.length;
+          video.src = reel[i].src;
+          video.style.objectPosition = reel[i].pos;
+          video.play();
+        }
+        video.addEventListener('ended', advance);
+        video.addEventListener('timeupdate', function () {
+          var cap = reel[i].maxDuration;
+          if (cap && video.currentTime >= cap) advance();
+        });
+      })();
+    </script>
 
     <div class="details-cards">
 
@@ -1992,7 +2066,7 @@ footer a:hover { color: var(--gold); }
           <label class="date-pick">
             <input type="radio" name="workshop-date" value="7.9.26" checked required>
             <span class="date-pick-card">
-              <span class="date-pick-name">מובילים אחרת - פוגשים מציאות</span>
+              <span class="date-pick-name">מובילים אחרת:<br>על אותנטיות ומנהיגות</span>
               <span class="date-pick-date">יום שני, 7.9</span>
               <span class="date-pick-time" dir="ltr">20:00–22:00</span>
             </span>
@@ -2073,13 +2147,12 @@ const observer = new IntersectionObserver((entries) => {
       const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
-      const scrollTo = () => {
-        const navHeight = document.querySelector('.nav')?.offsetHeight || 70;
-        const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      };
+      // scrollIntoView + scroll-margin-top (see CSS) is layout-aware, so it
+      // stays correct even if content shifts mid-scroll (fonts, video) -
+      // unlike a one-off manual pixel calculation.
+      const scrollTo = () => target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       scrollTo();
-      // Re-scroll after a short delay in case content has shifted
+      // Re-run after a short delay in case content has shifted
       setTimeout(scrollTo, 400);
       setTimeout(scrollTo, 1000);
     });
